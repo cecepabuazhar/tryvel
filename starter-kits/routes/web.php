@@ -31,7 +31,7 @@ Route::get('/about', function () {
         'name' => 'Cecep',
         'image' => '/images/cto.jpg',
     ];
-    return view('about', $data);
+    return view('about', $data); //ce;
 });
 
 Auth::routes();
