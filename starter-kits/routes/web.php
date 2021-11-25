@@ -23,10 +23,8 @@ Route::get('/', function () {
     return view('home', $data);
 });
 
-Route::get('/blog', [BlogController::class,'index']);
+Route::get('/blog', [PostController::class,'index']);
 Route::get('/post/{slug}', [PostController::class,'show']);
-
-Route::resource('posts', PostController::class);
 
 Route::get('/about', function () {
     $data = [
@@ -38,4 +36,4 @@ Route::get('/about', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
