@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\BlogController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
@@ -22,9 +23,10 @@ Route::get('/', function () {
     return view('home', $data);
 });
 
-Route::get('/blog', [PostController::class,'index']);
+Route::get('/blog', [BlogController::class,'index']);
 Route::get('/post/{slug}', [PostController::class,'show']);
 
+Route::resource('posts', PostController::class);
 
 Route::get('/about', function () {
     $data = [
@@ -36,12 +38,4 @@ Route::get('/about', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
