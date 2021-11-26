@@ -27,11 +27,13 @@ Route::get('/blog', [PostController::class,'index']);
 Route::get('/post/{slug}', [PostController::class,'show']);
 
 Route::get('/about', function () {
+    // dd(1);
     $data = [
         'name' => 'Cecep',
         'image' => '/images/cto.jpg',
     ];
-    return view('about', $data); //ce;
+
+    return view('about', $data);
 });
 
 Auth::routes();
